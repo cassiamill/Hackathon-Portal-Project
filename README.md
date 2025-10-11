@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+# HackathonPortal
+Creating a web-based platform that streamlines hackathon management by allowing students to register, form teams, submit projects, and track deadlines. It also provides organizers with tools to manage the hackathon event more efficiently and ensures smooth communication and collaboration among all members.
+=======
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -73,3 +77,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # Hackathon-Portal-Project
 Creating a web-based platform that streamlines hackathon management by allowing students to register, form teams, submit projects, and track deadlines. It also provides organizers with tools to manage the hackathon event more efficiently and ensures smooth communication and collaboration among all members.
 >>>>>>> 1005a7b25218eaa3c653272e0c1803097bf77f15
+>>>>>>> 4cd346f9195d5b3f34071444cee55d5994ed1d88
