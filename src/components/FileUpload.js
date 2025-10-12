@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { auth } from '../firebase/config';
 import { getIdToken } from 'firebase/auth';
+import './FileUpload.css'; // import the CSS file
 
 function FileUpload({ teamId, userId }) {
   const [file, setFile] = useState(null);
@@ -54,7 +55,7 @@ function FileUpload({ teamId, userId }) {
   };
 
   return (
-    <div>
+    <div className="file-upload">
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Upload</button>
     </div>

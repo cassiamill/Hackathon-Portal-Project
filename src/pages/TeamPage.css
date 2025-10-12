@@ -1,0 +1,41 @@
+.team-container {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.team-header {
+  text-align: center;
+}
+
+.team-logo {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.team-section {
+  margin-top: 20px;
+}
+
+.update-input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.update-input input {
+  flex: 1;
+  padding: 8px;
+}
+
+.update-input button {
+  padding: 8px 12px;
+}
+
+.update-list li {
+  background: #f3f3f3;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 6px;
+}
