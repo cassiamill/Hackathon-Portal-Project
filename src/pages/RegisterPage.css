@@ -1,0 +1,55 @@
+.register-container {
+  padding: 30px;
+  max-width: 400px;
+  margin: 100px auto;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.register-container h2 {
+  margin-bottom: 20px;
+}
+
+.register-container input {
+  padding: 8px;
+  width: 90%;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.register-container button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register-container button:hover {
+  background-color: #45a049;
+}
+
+.register-container .message {
+  margin-top: 15px;
+  color: #333;
+}
+
+.register-container .already-account {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.register-container .already-account a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-container .already-account a:hover {
+  text-decoration: underline;
+}

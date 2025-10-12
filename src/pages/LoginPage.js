@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/config";
+import { Link } from "react-router-dom";
+import './LoginPage.css';
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -17,13 +19,8 @@ function LoginPage() {
     }
   };
 
-  const handleLogout = async () => {
-    await signOut(auth);
-    setMessage("Logged out successfully.");
-  };
-
   return (
-    <div style={{ padding: 30 }}>
+    <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
@@ -40,8 +37,11 @@ function LoginPage() {
         /><br />
         <button type="submit">Login</button>
       </form>
-      <button onClick={handleLogout}>Logout</button>
-      <p>{message}</p>
+      <p className="message">{message}</p>
+
+      <p className="already-account">
+        Don't have an account? <Link to="/register">Create an account</Link>
+      </p>
     </div>
   );
 }
