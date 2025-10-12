@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDeDx2qnUdc3Adv3FaJik2p5_VeocIqv0s",
+  apiKey: "",
   authDomain: "hackathonportal-1212.firebaseapp.com",
   projectId: "hackathonportal-1212",
   storageBucket: "hackathonportal-1212.firebasestorage.app",
