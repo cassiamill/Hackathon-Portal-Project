@@ -5,6 +5,8 @@ import "./TeamPage.css";
 
 function TeamPage() {
   const [user, setUser] = useState(null);
+
+  // ✅ Mock do time
   const [team, setTeam] = useState({
     id: "team123",
     name: "They Hack a Tons",
@@ -31,7 +33,19 @@ function TeamPage() {
     }
   };
 
+  // 🔹 Função para "sair do time"
+  const handleLeaveTeam = () => {
+    const confirmLeave = window.confirm(
+      "Are you sure you want to leave the team?"
+    );
+    if (confirmLeave) {
+      setTeam(null); // remove o time do usuário (mock)
+      alert("You have left the team.");
+    }
+  };
+
   if (!user) return <p>Please log in to see your team page.</p>;
+  if (!team) return <p>You are not part of a team.</p>;
 
   return (
     <div className="team-container">
@@ -49,14 +63,17 @@ function TeamPage() {
       <div className="team-section">
         <h3>Team Members:</h3>
         <ul>
-          {team.members.map((member, index) => <li key={index}>{member}</li>)}
+          {team.members.map((member, index) => (
+            <li key={index}>{member}</li>
+          ))}
         </ul>
       </div>
 
       <div className="team-section">
         <h3>Mentor:</h3>
         <p>
-          <strong>{team.mentor.name}</strong> — <a href={`mailto:${team.mentor.email}`}>{team.mentor.email}</a>
+          <strong>{team.mentor.name}</strong> —{" "}
+          <a href={`mailto:${team.mentor.email}`}>{team.mentor.email}</a>
         </p>
       </div>
 
@@ -77,14 +94,24 @@ function TeamPage() {
           <button onClick={handleAddUpdate}>Post</button>
         </div>
         <ul className="update-list">
-          {updates.length === 0 ? <p>No updates yet.</p> :
-            updates.map((update, index) => <li key={index}>{update}</li>)}
+          {updates.length === 0 ? (
+            <p>No updates yet.</p>
+          ) : (
+            updates.map((update, index) => <li key={index}>{update}</li>)
+          )}
         </ul>
       </div>
 
       <div className="team-section">
         <h3>Presentation Schedule:</h3>
         <p>{team.presentationTime}</p>
+      </div>
+
+      {/* 🔹 Botão para sair do time */}
+      <div className="team-section">
+        <button onClick={handleLeaveTeam} className="leave-team-button">
+          Leave Team
+        </button>
       </div>
     </div>
   );

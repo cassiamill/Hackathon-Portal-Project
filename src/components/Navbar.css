@@ -1,50 +1,78 @@
+/* Navbar.css */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
-  background-color: #eee;
   align-items: center;
+  height: 100px;
+  padding: 0 20px;
+  background-color: black;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.nav-left a, .dropdown-menu a {
-  margin-right: 15px;
-  text-decoration: none;
-  color: #333;
-}
-
-.nav-right {
-  position: relative;
+/* ✅ Logo styles */
+.nav-logo {
+  width: 200px;          /* Small size */
+  height: auto;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.user-dropdown {
-  font-weight: bold;
+.nav-logo:hover {
+  transform: scale(1.05);
 }
 
+/* ✅ Links and buttons */
+.nav-left a,
+.nav-right a,
+.nav-right button {
+  color: #65c5e8;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.nav-right button:hover,
+.nav-right a:hover {
+  color: white;
+}
+
+.hamburger {
+  font-size: 26px;
+  cursor: pointer;
+  color: #65c5e8;
+}
+
+/* ✅ Dropdown menu */
 .dropdown-menu {
   position: absolute;
-  right: 0;
-  top: 25px;
-  background-color: white;
-  border: 1px solid #ccc;
+  top: 70px;
+  right: 20px;
+  background: white;
+  color: black;
+  border-radius: 6px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 120px;
-  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+.dropdown-menu a,
 .dropdown-menu button {
-  border: none;
+  margin: 5px 0;
   background: none;
-  cursor: pointer;
+  border: none;
   text-align: left;
-  padding: 0;
-  color: #333;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.dropdown-menu button:hover,
-.dropdown-menu a:hover {
-  text-decoration: underline;
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  color: #65c5e8;
 }
