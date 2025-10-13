@@ -32,3 +32,5 @@ src/firebase/*.js
 
 # Optional IDE files
 .vscode/
+
+HACKATHON-BACKEND/config/hackathonaut-firebase-adminsdk-fbsvc-836b4cc6b2.json
