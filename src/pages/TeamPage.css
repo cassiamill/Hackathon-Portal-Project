@@ -39,3 +39,16 @@
   border-radius: 6px;
   margin-top: 6px;
 }
+
+.leave-team-button {
+  padding: 8px 16px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.leave-team-button:hover {
+  background-color: #d9363e;
+}

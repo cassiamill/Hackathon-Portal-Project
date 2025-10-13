@@ -1,0 +1,37 @@
+.team-options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 70px);
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.btn.blue {
+  background-color: #65c5e8;
+  color: white;
+  border: none;
+}
+
+.btn.outline {
+  border: 2px solid #65c5e8;
+  color: #65c5e8;
+  background: none;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/config";
-import { Link } from "react-router-dom";
-import './RegisterPage.css'; // Import CSS
+import { Link, useNavigate } from "react-router-dom";
+import { mockTeams } from "../mockData";
+import './RegisterPage.css';
 
 function RegisterPage() {
   const [name, setName] = useState("");
@@ -10,22 +11,32 @@ function RegisterPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
 
-    // Check if passwords match
     if (password !== confirmPassword) {
       setMessage("Passwords do not match!");
       return;
     }
 
     try {
-      // Create user
+      // create user
       await createUserWithEmailAndPassword(auth, email, password);
-      // Update user profile with display name
       await updateProfile(auth.currentUser, { displayName: name });
-      setMessage("Account created successfully!");
+
+      // check if user already has a team
+      const userTeam = mockTeams.find(
+        t => t.leader === auth.currentUser.email || t.members.includes(auth.currentUser.email)
+      );
+
+      if (userTeam) {
+        navigate("/team"); // already has a team
+      } else {
+        navigate("/team-selection"); // no team → create one
+      }
+
     } catch (error) {
       setMessage(error.message);
     }
@@ -67,7 +78,6 @@ function RegisterPage() {
       </form>
 
       <p className="message">{message}</p>
-
       <p className="already-account">
         Already have an account? <Link to="/login">Log in</Link>
       </p>
