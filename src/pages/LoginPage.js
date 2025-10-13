@@ -1,8 +1,9 @@
+// LoginPage.js
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/config";
 import { Link, useNavigate } from "react-router-dom";
-import { mockTeams } from "../mockData";
+import axios from "axios";
 import './LoginPage.css';
 
 function LoginPage() {
@@ -15,27 +16,28 @@ function LoginPage() {
     e.preventDefault();
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      // Firebase authentication
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
 
-      // check if user already has a team
-      const userTeam = mockTeams.find(
-        t => t.leader === auth.currentUser.email || t.members.includes(auth.currentUser.email)
-      );
-
-      if (userTeam) {
-        navigate("/team"); // already has a team
+      // Fetch user's team from backend
+      const res = await axios.get(`http://localhost:5000/users/${user.uid}/team`);
+      
+      if (res.data && res.data.team) {
+        navigate("/team"); // User already has a team
       } else {
-        navigate("/team-selection"); // no team → create one
+        navigate("/team-selection"); // No team → select/create one
       }
 
     } catch (error) {
-      setMessage(error.message);
+      console.error(error);
+      setMessage(error.response?.data?.message || error.message);
     }
   };
 
   return (
     <div className="login-container">
-      <h2>Sign In</h2>
+      <h2>Log In</h2>
       <form onSubmit={handleLogin}>
         <input
           type="email"
@@ -51,9 +53,9 @@ function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
         /><br />
 
-        <button type="submit">Sign In</button>
+        <button type="submit">Log In</button>
       </form>
-
+      <p><Link to="/reset-password" className="forgot-password-link">Forgot your password?</Link></p>
       <p className="message">{message}</p>
       <p className="already-account">
         Don't have an account? <Link to="/register">Create an account</Link>

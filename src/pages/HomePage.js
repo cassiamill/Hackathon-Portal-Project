@@ -1,27 +1,34 @@
-// HomePage.js
-import React from "react";
+import React from "react"; // remove useEffect
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase/config";
-import { mockTeams } from "../mockData";
+import { auth } from "../firebase/config"; // keep firebase auth
+import axios from "axios"; // for backend requests
 import './HomePage.css';
 
 export default function HomePage() {
   const navigate = useNavigate();
 
-  const handleJoinHackathon = () => {
+  const handleJoinHackathon = async () => {
     const user = auth.currentUser;
     if (!user) {
       navigate("/login");
       return;
     }
 
-    const userTeam = mockTeams.find(
-      t => t.leader === user.email || t.members.includes(user.email)
-    );
+    try {
+      const token = await user.getIdToken();
+      const res = await axios.get('http://localhost:5000/projects', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      const userProject = res.data.find(p => p.user === user.uid);
 
-    if (userTeam) {
-      navigate("/team");
-    } else {
+      if (userProject) {
+        navigate("/team");
+      } else {
+        navigate("/team-selection");
+      }
+    } catch (err) {
+      console.error("Error fetching user projects:", err);
       navigate("/team-selection");
     }
   };

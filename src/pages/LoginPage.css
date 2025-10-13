@@ -10,7 +10,11 @@
 }
 
 .login-container h2 {
-  margin-bottom: 20px;
+  font-family: 'BebasNeue', sans-serif;
+  color: #65c5e8;
+  font-size: 40px;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
 }
 
 .login-container input {
@@ -22,12 +26,14 @@
 }
 
 .login-container button {
-  padding: 8px 16px;
-  margin-top: 10px;
+  padding: 10px 20px;
+  margin-top: 15px;
   border: none;
   background-color: #65c5e8;
   color: white;
   border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
 }
 
@@ -38,6 +44,16 @@
 .login-container .message {
   margin-top: 15px;
   color: #4aa3c9;
+}
+
+.forgot-password-link {
+  color: #65c5e8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
 }
 
 .login-container .create-account {
