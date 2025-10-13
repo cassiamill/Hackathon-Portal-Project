@@ -32,3 +32,6 @@ src/firebase/*.js
 
 # Optional IDE files
 .vscode/
+
+# Ignore backend folder
+HACKATHON-BACKEND/
