@@ -2,7 +2,7 @@
 // and communicate securely with Firebase Authentication.
 
 const admin = require('firebase-admin');
-const serviceAccount = require('./hackathonaut-firebase-adminsdk-fbsvc-836b4cc6b2.json');
+const serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
