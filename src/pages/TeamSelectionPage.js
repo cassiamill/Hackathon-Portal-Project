@@ -37,7 +37,6 @@ export default function TeamSelectionPage() {
       <input placeholder="Team Name" value={name} onChange={e => setName(e.target.value)} />
       <input placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} />
       <input placeholder="Leader Email" value={leaderEmail} onChange={e => setLeaderEmail(e.target.value)} />
-
       {memberEmails.map((email, idx) => (
         <input
           key={idx}
