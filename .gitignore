@@ -35,3 +35,6 @@ src/firebase/*.js
 
 # Ignore backend folder
 HACKATHON-BACKEND/
+
+# Ignore readme
+README/

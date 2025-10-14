@@ -1,4 +1,3 @@
-// Navbar.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase/config";
@@ -11,7 +10,7 @@ function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
-    // Load user from Firebase or localStorage
+    // Load user from Firebase or local storage
     const unsubscribe = auth.onAuthStateChanged(firebaseUser => {
       if (firebaseUser) {
         // For Firebase auth
@@ -20,7 +19,7 @@ function Navbar() {
           email: firebaseUser.email,
           name: firebaseUser.displayName || firebaseUser.email
         });
-        // Optional: save to localStorage for persistence
+        // save to local storage for persistence
         localStorage.setItem("user", JSON.stringify({
           id: firebaseUser.uid,
           email: firebaseUser.email,
@@ -36,7 +35,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth); // Firebase sign out
+      await signOut(auth); // Sign out
       setDropdownOpen(false);
     } catch (error) {
       console.error("Logout failed:", error);
