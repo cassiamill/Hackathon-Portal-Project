@@ -1,0 +1,22 @@
+// Minimal placeholder firebase config for local dev (no real credentials).
+// Replace with your real Firebase initialization when ready.
+
+const firebaseMock = {
+  auth: () => ({
+    onAuthStateChanged: () => {},
+    signInWithEmailAndPassword: async () => ({ user: null }),
+    createUserWithEmailAndPassword: async () => ({ user: null }),
+    signOut: async () => {}
+  }),
+  firestore: () => ({
+    collection: () => ({
+      doc: () => ({
+        get: async () => ({ exists: false }),
+        set: async () => {}
+      })
+    })
+  }),
+  initializeApp: () => {}
+};
+
+export default firebaseMock;
